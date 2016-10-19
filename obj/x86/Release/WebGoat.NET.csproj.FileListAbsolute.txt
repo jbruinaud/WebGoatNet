@@ -1,0 +1,10 @@
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\DotNetGoat.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\log4net.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\mysql.data.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\mysql.data.entity.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\mysql.visualstudio.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\mysql.web.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\System.Data.SQLite.dll
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\System.Data.SQLite.xml
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\bin\x86\Release\log4net.xml
+C:\Checkmarx\RASP\Projects\WebGoat.NET-master\WebGoat.NET-master\WebGoat\obj\x86\Release\DotNetGoat.dll
