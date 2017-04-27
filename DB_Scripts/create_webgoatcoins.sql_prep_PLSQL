@@ -1,0 +1,172 @@
+﻿/******************************************************************************
+ * copyright (c) 2005 actuate corporation.
+ * all rights reserved. this file and the accompanying materials
+ * are made available under the terms of the eclipse public license v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * contributors:
+ *  actuate corporation  - initial implementation
+ *
+ * classic models inc. sample database developed as part of the
+ * eclipse birt project. for more information, see http:\\www.eclipse.org\birt
+ *
+ *******************************************************************************/
+/*******************************************************************************
+* changes made jan 2012 - copyright 2012
+* updated birt to be the webgoat coins database
+* images copyright us mint and the perth mint
+* contributers:
+* jerry hoff - infrared security, llc
+*
+*******************************************************************************/
+
+
+
+/* recommended database name is classicmodels. */
+
+/* create database classicmodels; */
+/* use classicmodels; */
+
+/* drop the existing tables. comment this out if it is not needed. */
+
+/* webgoat.net note: use name webgoat_coins" */
+
+
+drop table customers;
+drop table customerlogin;
+drop table securityquestions;
+drop table employees;
+drop table offices;
+drop table orderdetails;
+drop table orders;
+drop table payments;
+drop table products;
+drop table categories;
+drop table comments;
+
+
+/* create the full set of classic models tables */
+
+create table customers (
+  customernumber integer not null,
+  customername varchar(50) not null,
+  logofilename varchar(100) null,
+  contactlastname varchar(50) not null,
+  contactfirstname varchar(50) not null,
+  phone varchar(50) not null,
+  addressline1 varchar(50) not null,
+  addressline2 varchar(50) null,
+  city varchar(50) not null,
+  state varchar(50) null,
+  postalcode varchar(15) null,
+  country varchar(50) not null,
+  salesrepemployeenumber integer null,
+  creditlimit double null,
+  primary key (customernumber)
+);
+
+create table customerlogin (
+ email varchar(100) not null,
+ customernumber integer not null,
+ password varchar(40) not null,
+ question_id smallint null,
+ answer varchar(50) null,
+ primary key (email)
+);
+
+create table securityquestions (
+ question_id smallint not null,
+ question_text varchar(400) not null,
+ primary key (question_id)
+);
+
+
+create table employees (
+  employeenumber integer not null,
+  lastname varchar(50) not null,
+  firstname varchar(50) not null,
+  extension varchar(10) not null,
+  email varchar(100) not null,
+  officecode varchar(10) not null,
+  reportsto integer null,
+  jobtitle varchar(50) not null,
+  primary key (employeenumber)
+);
+
+create table offices (
+  officecode varchar(10) not null,
+  city varchar(50) not null,
+  phone varchar(50) not null,
+  addressline1 varchar(50) not null,
+  addressline2 varchar(50) null,
+  state varchar(50) null,
+  country varchar(50) not null,
+  postalcode varchar(15) not null,
+  territory varchar(10) not null,
+  primary key (officecode)
+);
+
+create table orderdetails (
+  ordernumber integer not null,
+  productcode varchar(15) not null,
+  quantityordered integer not null,
+  priceeach double not null,
+  orderlinenumber smallint not null,
+  primary key (ordernumber, productcode)
+);
+
+create table orders (
+  ordernumber integer not null,
+  orderdate datetime not null,
+  requireddate datetime not null,
+  shippeddate datetime null,
+  status varchar(15) not null,
+  comments text null,
+  customernumber integer not null,
+  primary key (ordernumber)
+);
+
+
+create table payments (
+  customernumber integer not null,  
+  cardtype varchar(50) not null,
+  creditcardnumber varchar(50) not null,
+  verificationcode smallint not null,
+  cardexpirationmonth varchar(3) not null,
+  cardexpirationyear varchar(5) not null,  
+  confirmationcode varchar(50) not null,
+  paymentdate datetime not null,
+  amount double not null,
+  primary key (customernumber, confirmationcode)
+);
+
+create table categories(
+  catnumber integer not null,
+  catname varchar(50) not null,
+  catdesc text not null,
+  primary key (catnumber)
+);
+
+create table products (
+  productcode varchar(15) not null,
+  productname varchar(200) not null,
+  catnumber integer not null,
+  productimage varchar(100) not null,
+  productvendor varchar(50) not null,
+  productdescription text not null,
+  quantityinstock smallint not null,
+  buyprice double not null,
+  msrp double not null,
+  primary key (productcode)
+);
+
+create table comments(
+ commentnumber integer not null auto_increment,
+ productcode varchar(15) not null,
+ email varchar(100) not null,
+ comment text not null,
+ primary key (commentnumber)
+);
+
+ 

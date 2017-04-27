@@ -1,0 +1,98 @@
+﻿/******************************************************************************
+ * copyright (c) 2005 actuate corporation.
+ * all rights reserved. this file and the accompanying materials
+ * are made available under the terms of the eclipse public license v1.0
+ * which accompanies this distribution, and is available at
+ * http:/www.eclipse.org/legal/epl-v10.html
+ *
+ * contributors:
+ *  actuate corporation  - initial implementation
+ *
+ * classic models inc. sample database developed as part of the
+ * eclipse birt project. for more information, see http:/www.eclipse.org/birt
+ *
+ *******************************************************************************/
+
+/* loads the classic models tables using the mysql load command */
+
+/* preparing the load files for importing. input file requirements:
+     - column order in the file must be the same as the columns in the table
+     - columns are comma delimited
+     - text is quoted (")
+     - null columns must be ,null,  ( ,, is not acceptable)
+     - dates must be in yyyy-mm-ddd format
+
+   input files expected in the datafiles direcory, parallel to this script.
+*/
+
+
+/* first make sure all the tables are empty */
+
+delete from customers;
+delete from customerlogin;
+delete from securityquestions;
+delete from employees;
+delete from offices;
+delete from orderdetails;
+delete from orders;
+delete from payments;
+delete from products;
+delete from categories;
+delete from comments;
+
+
+/* load records into the tables. there should be no warnings.*/
+
+load data local infile 'db_scripts/datafiles/customers.txt' into table customers
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/customerlogin.txt' into table customerlogin
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/securityquestions.txt' into table securityquestions
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/employees.txt' into table employees
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/offices.txt' into table offices
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/orderdetails.txt' into table orderdetails
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/orders.txt' into table orders
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+load data local infile 'db_scripts/datafiles/payments.txt' into table payments
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 100;
+
+load data local infile 'db_scripts/datafiles/categories.txt' into table categories 
+          fields terminated by '|' lines terminated by '\n';
+          
+show warnings limit 100;
+
+
+load data local infile 'db_scripts/datafiles/products.txt' into table products
+          fields terminated by '|' lines terminated by '\n';
+
+show warnings limit 10;
+
+
+ 

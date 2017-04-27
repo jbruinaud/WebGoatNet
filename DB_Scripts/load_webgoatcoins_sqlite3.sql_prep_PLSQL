@@ -1,0 +1,26 @@
+﻿.separator "|"
+
+delete from customers;
+delete from customerlogin;
+delete from securityquestions;
+delete from employees;
+delete from offices;
+delete from orderdetails;
+delete from orders;
+delete from payments;
+delete from products;
+delete from categories;
+delete from comments;
+
+.import db_scripts/datafiles/customers.txt customers
+.import db_scripts/datafiles/customerlogin.txt customerlogin
+.import db_scripts/datafiles/securityquestions.txt securityquestions
+.import db_scripts/datafiles/employees.txt employees
+.import db_scripts/datafiles/offices.txt offices
+.import db_scripts/datafiles/orderdetails.txt orderdetails
+.import db_scripts/datafiles/orders.txt orders
+.import db_scripts/datafiles/payments.txt payments
+.import db_scripts/datafiles/categories.txt categories
+.import db_scripts/datafiles/products.txt products
+
+ 
