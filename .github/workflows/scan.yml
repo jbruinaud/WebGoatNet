@@ -12,3 +12,5 @@ jobs:
         cxServer: https://cxprivatecloud.checkmarx.net/
         cxToken: ${{ secrets.CX_TOKEN }}
         cxTeam: \CxServer\SP\EMEA\checkmarx.com-855
+        cxIncremental: true
+        cxProject: WebGoatNet
